@@ -51,14 +51,14 @@ Placed Na+ in mol at (14.37, 9.84, 6.46).
 Placed Na+ in mol at (48.37, 14.84, 4.46).
 
 Done adding ions.
-Scaling up box by a factor of 1.261634 to meet diagonal cut criterion
+Scaling up box by a factor of 1.244346 to meet diagonal cut criterion
   Solute vdw bounding box:              44.298 103.254 122.207
-  Total bounding box for atom centers:  162.580 162.580 162.580
-      (box expansion for 'iso' is 117.4%)
+  Total bounding box for atom centers:  152.072 152.072 152.072
+      (box expansion for 'iso' is 134.2%)
   Solvent unit box:                     18.774 18.774 18.774
-  Volume: 2188551.079 A^3 (oct)
-  Total mass 1223752.528 amu,  Density 0.929 g/cc
-  Added 65079 residues.
+  Volume: 1793300.659 A^3 (oct)
+  Total mass 995958.224 amu,  Density 0.922 g/cc
+  Added 52435 residues.
 Checking Unit.
 Building topology.
 Building atom parameters.
@@ -78,7 +78,7 @@ Marking per-residue atom chain types.
 
 	CLEU	2
 	NPRO	2
-	WAT	65079
+	WAT	52435
   )
  (no restraints)
 Writing pdb file: 4xfx_sep_solv.pdb
