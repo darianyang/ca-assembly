@@ -2,11 +2,10 @@ from pdbfixer import PDBFixer
 from openmm.app import PDBFile
 
 import subprocess
+import sys
 
-pdb = "2ml8"
-
-# model 1 extract
-subprocess.run(['pdb4amber', '--no-conect', '-i', f'{pdb}.pdb', '-o', f'{pdb}_m01.pdb', '--model', '1'])
+#pdb = 'models/model_1'
+pdb = sys.argv[1]
 
 def pdb_fix(pdb_prefix):
     '''
@@ -20,7 +19,7 @@ def pdb_fix(pdb_prefix):
     '''
     # initialize pdb fixer
     fixer = PDBFixer(filename=f'{pdb_prefix}.pdb')
-    
+ 
     # run fixer methods
     fixer.findMissingResidues()
     fixer.findNonstandardResidues()
@@ -36,9 +35,13 @@ def pdb_fix(pdb_prefix):
     PDBFile.writeFile(fixer.topology, fixer.positions, open(f'{pdb_prefix}_fixer.pdb', 'w'))
 
 # run pdbfixer
-#pdb_fix('4xfx')
+pdb_fix(pdb)
 
 # run pdb4amber (ambertools must be installed)
 # --no-conect will not write connect records for disulfide bonds (e.g. for reducing conditions)
-#subprocess.run(['pdb4amber', '--no-conect', '-i', '4xfx_fixer.pdb', '-o', '4xfx_leap.pdb'])
+# model -1 for all models (3 CA dimers in this case)
+#subprocess.run(['pdb4amber', '--no-conect', 
+#                '-i', f'{pdb}_fixer.pdb', 
+#                '-o', f'{pdb}_leap.pdb',
+#                '--model', -1])
 

@@ -4,7 +4,7 @@ Compute radius of gyration using MDTraj.
 
 import mdtraj as md
 
-pdb = "4xfx_leap"
+pdb = "models/model_1_fixer"
 t = md.load(f"{pdb}.pdb", top=f"{pdb}.pdb")
 
 #top = t.topology
