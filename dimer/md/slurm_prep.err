@@ -1,0 +1,30 @@
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
++ export 'DO_PARALLEL=mpirun -np 16'
++ DO_PARALLEL='mpirun -np 16'
++ SANDER=pmemd.MPI
++ PDB=4xfx_sep_solv
++ printf '\nstart min\n\n'
++ mpirun -np 16 pmemd.MPI -O -i 02_min.in -o 02_min.out -p 4xfx_sep_solv.prmtop -c 4xfx_sep_solv.inpcrd -r 02_min.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n41.crc.pitt.edu:90222] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n41.crc.pitt.edu:90222] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+mpirun: Forwarding signal 18 to job
+slurmstepd: error: *** JOB 6433979 ON smp-n41 CANCELLED AT 2022-07-27T10:37:26 ***

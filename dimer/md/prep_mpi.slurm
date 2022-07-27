@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=PDB_TEMP_PREP
+#SBATCH --job-name=4xfx_sep_PREP
 #SBATCH --nodes=1 
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=16
 #SBATCH --cluster=smp
 #SBATCH --partition=smp 
-#SBATCH --time=23:59:59 
+#SBATCH --time=119:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_prep.out 
@@ -12,20 +12,26 @@
 
 # load appropriate modules.  First purge all modules then load in intel (a prereq for loading in amber) and then amber 
 module purge
-module load intel/2017.3.196
-module load amber/18
+
+#module load intel/2017.3.196
+#module load amber/18
+
+#module load cuda/11.0
+module load gcc/8.2.0
+module load openmpi/4.0.3
+module load amber/22
 
 # echo commands to stdout
 set -x
 
 # set variables
-export DO_PARALLEL="mpirun -np 8"
+export DO_PARALLEL="mpirun -np 16"
 SANDER=pmemd.MPI
 
 ###################################################
 ###################################################
 ###################################################
-PDB="PDB_TEMP_solv" 
+PDB="4xfx_sep_solv" 
 ###################################################
 ###################################################
 ###################################################
@@ -63,4 +69,4 @@ $DO_PARALLEL \
 printf "\ndone unrestrained equil\n\n"
 
 printf "\nSUBMITTING PROD RUN\n" &&
-sbatch h2p_1gpu_prod.slurm
+#sbatch h2p_1gpu_prod.slurm

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=PDB_TEMP_ANAL
+#SBATCH --job-name=4xfx_sep_ANAL
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --cluster=smp

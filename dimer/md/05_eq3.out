@@ -1,0 +1,83 @@
+
+          -------------------------------------------------------
+          Amber 22 PMEMD                              2022
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 22
+
+|  Compiled date/time: Thu Apr 14 14:06:37 2022
+| Run on 07/27/2022 at 10:26:23
+
+|   Executable path: pmemd.MPI
+| Working directory: /ix/lchong/dty7/ca-assembly/dimer/md
+|          Hostname: smp-n41
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: 05_eq3_rest.in                                                        
+|  MDOUT: 05_eq3.out                                                            
+| INPCRD: 04_eq2.rst                                                            
+|   PARM: 4xfx_sep_solv.prmtop                                                  
+| RESTRT: 05_eq3.rst                                                            
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|LOGFILE: logfile                                                               
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+1 ns unrestrained NPT equilibration using Langevin thermostat and MC barostat  
+&cntrl                                                                         
+  irest     = 1,                                                               
+  ntx       = 5,                                                               
+  ig        = -1,                                                              
+  dt        = 0.002,                                                           
+  nstlim    = 500000,                                                          
+  nscm      = 500,                                                             
+  ntr       = 0,                                                               
+  ntb       = 2,                                                               
+  ntp       = 1,                                                               
+  barostat  = 2,                                                               
+  pres0     = 1.0,                                                             
+  mcbarint  = 100,                                                             
+  comp      = 44.6,                                                            
+  taup      = 1.0,                                                             
+  ntt       = 3,                                                               
+  temp0     = 298.0,                                                           
+  gamma_ln  = 1.0,                                                             
+  ntf       = 2,                                                               
+  ntc       = 2,                                                               
+  cut       = 10.0,                                                            
+  ntpr      = 500,                                                             
+  ntxo      = 2,                                                               
+  ntwr      = 500000,                                                          
+  ioutfm    = 1,                                                               
+  ntwx      = 500,                                                             
+  iwrap     = 1,                                                               
+&end                                                                           
+!&wt                                                                           
+!  type      = 'REST',                                                         
+!  value1    = 1.0,                                                            
+!&end                                                                          
+&wt                                                                            
+  type      = 'DUMPFREQ',                                                      
+&end                                                                           
+&wt                                                                            
+  type      = 'END',                                                           
+&end                                                                           
+DISANG      = rest.disang                                                      
+DUMPSAVE    = rest.dat                                                         
+
+
+Note: ig = -1. Setting random seed to   885520 based on wallclock time in
+      microseconds and disabling the synchronization of random numbers 
+      between tasks to improve performance.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+
+  Unit    9 Error on OPEN: 04_eq2.rst                                                                                                                                                                                                                                                      
