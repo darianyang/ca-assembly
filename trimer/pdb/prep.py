@@ -35,13 +35,13 @@ def pdb_fix(pdb_prefix):
     PDBFile.writeFile(fixer.topology, fixer.positions, open(f'{pdb_prefix}_fixer.pdb', 'w'))
 
 # run pdbfixer
-pdb_fix(pdb)
+#pdb_fix(pdb)
 
 # run pdb4amber (ambertools must be installed)
 # --no-conect will not write connect records for disulfide bonds (e.g. for reducing conditions)
 # model -1 for all models (3 CA dimers in this case)
-#subprocess.run(['pdb4amber', '--no-conect', 
-#                '-i', f'{pdb}_fixer.pdb', 
-#                '-o', f'{pdb}_leap.pdb',
-#                '--model', -1])
+subprocess.run(['pdb4amber', '--no-conect', 
+                '-i', f'{pdb}_sep.pdb', 
+                '-o', f'{pdb}_leap.pdb',
+                '--model', '-1'])
 
