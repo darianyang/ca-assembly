@@ -40,8 +40,9 @@ def pdb_fix(pdb_prefix):
 # run pdb4amber (ambertools must be installed)
 # --no-conect will not write connect records for disulfide bonds (e.g. for reducing conditions)
 # model -1 for all models (3 CA dimers in this case)
+# sep2 was an attempt to make the system more compact
 subprocess.run(['pdb4amber', '--no-conect', 
-                '-i', f'{pdb}_sep.pdb', 
+                '-i', f'{pdb}.pdb', 
                 '-o', f'{pdb}_leap.pdb',
                 '--model', '-1'])
 
