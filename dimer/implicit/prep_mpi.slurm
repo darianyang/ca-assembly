@@ -69,4 +69,4 @@ $DO_PARALLEL \
 printf "\ndone unrestrained equil\n\n"
 
 printf "\nSUBMITTING PROD RUN\n" &&
-sbatch h2p_1gpu_prod.slurm
+#sbatch h2p_1gpu_prod.slurm

@@ -13,7 +13,7 @@
   igb       = 1,        ! GB implicit solvent
   cut       = 1000.0,   ! increased cut with implicit
   rgbmax    = 999.0,    ! atom pair distance cutoff
-  saltcon   = 1.0,      ! implicit salt con in Molar
+  saltcon   = 0.0,      ! implicit salt con in Molar
   ntp       = 1,
   barostat  = 2,
   pres0     = 1.0,

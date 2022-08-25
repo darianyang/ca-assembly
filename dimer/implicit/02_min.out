@@ -1,0 +1,65 @@
+
+          -------------------------------------------------------
+          Amber 22 PMEMD                              2022
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 22
+
+|  Compiled date/time: Thu Apr 14 14:06:37 2022
+| Run on 08/25/2022 at 12:05:49
+
+|   Executable path: pmemd.MPI
+| Working directory: /ix/lchong/dty7/ca-assembly/dimer/implicit
+|          Hostname: smp-n154
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: 02_min.in                                                             
+|  MDOUT: 02_min.out                                                            
+| INPCRD: 4xfx_sep_solv.inpcrd                                                  
+|   PARM: 4xfx_sep_solv.prmtop                                                  
+| RESTRT: 02_min.rst                                                            
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|LOGFILE: logfile                                                               
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+Unrestrained 10000 step minimization, 500 SD                                   
+&cntrl                                                                         
+  imin      = 1,                                                               
+  irest     = 0,                                                               
+  ntx       = 1,                                                               
+  ntmin     = 1,                                                               
+  maxcyc    = 10000,                                                           
+  ncyc      = 500,                                                             
+  ntr       = 0,                                                               
+  ntf       = 1,                                                               
+  ntc       = 1,                                                               
+  ntb       = 0,        ! no periodic boundaries                               
+  igb       = 1,        ! GB implicit solvent                                  
+  cut       = 1000.0,   ! increased cut with implicit                          
+  rgbmax    = 999.0,    ! atom pair distance cutoff                            
+  saltcon   = 0.0,      ! implicit salt con in Molar                           
+  ntpr      = 1,                                                               
+  ntxo      = 2,                                                               
+  ntwr      = 10000,                                                           
+  ioutfm    = 1,                                                               
+  ntwx      = 0,                                                               
+  iwrap     = 1,                                                               
+&end                                                                           
+
+
+Note: ig = -1. Setting random seed to   114862 based on wallclock time in
+      microseconds and disabling the synchronization of random numbers 
+      between tasks to improve performance.
+| irandom = 1, using AMBER's internal random number generator (default).
+| ERROR:   iwrap = 1 must be used with a periodic box!
+
+ Input errors occurred. Terminating execution.
