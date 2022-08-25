@@ -1,0 +1,17 @@
+
+CPPTRAJ: Trajectory Analysis. V6.4.4 (AmberTools)
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 08/12/22 19:41:02
+| Available memory: 60.213 GB
+
+INPUT: Reading input from 'strip_06.in'
+  [parm 4xfx_sep_solv.prmtop]
+	Reading '4xfx_sep_solv.prmtop' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+  [trajin 06_prod.nc 1 last 10i]
+	Reading '06_prod.nc' as Amber NetCDF
+TIME: Total execution time: 0.4071 seconds.
+

@@ -45,11 +45,11 @@ echo "go"                                                   >> strip_06.in
 echo "quit"                                                 >> strip_06.in
 
 # run cpptraj to strip water
-cpptraj -i strip_06.in > strip_06.out
+#cpptraj -i strip_06.in > strip_06.out
 
 # remove solvated nc file
-if [ -f "06_prod_dry.nc" ] ; then
-    rm 06_prod.nc &&
-    mv 06_prod_dry.nc 06_prod.nc
-fi
+#if [ -f "06_prod_dry.nc" ] ; then
+#    rm 06_prod.nc &&
+#    mv 06_prod_dry.nc 06_prod.nc
+#fi
 

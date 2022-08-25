@@ -24,7 +24,58 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-[smp-n41.crc.pitt.edu:90222] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[smp-n41.crc.pitt.edu:90222] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-mpirun: Forwarding signal 18 to job
-slurmstepd: error: *** JOB 6433979 ON smp-n41 CANCELLED AT 2022-07-27T10:37:26 ***
+[smp-n41.crc.pitt.edu:90376] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n41.crc.pitt.edu:90376] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
++ printf '\ndone min\n\n'
++ printf '\nstart restrained system heat in\n\n'
++ mpirun -np 16 pmemd.MPI -O -i 03_eq1.in -o 03_eq1.out -p 4xfx_sep_solv.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n41.crc.pitt.edu:90609] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n41.crc.pitt.edu:90609] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
++ printf '\ndone restrained system heat in\n\n'
++ printf '\nstart restrained equil\n\n'
++ mpirun -np 16 pmemd.MPI -O -i 04_eq2.in -o 04_eq2.out -p 4xfx_sep_solv.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n41.crc.pitt.edu:90776] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n41.crc.pitt.edu:90776] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
++ printf '\ndone restrained equil\n\n'
++ printf '\nstart unrestrained equil\n\n'
++ mpirun -np 16 pmemd.MPI -O -i 05_eq3_rest.in -o 05_eq3.out -p 4xfx_sep_solv.prmtop -c 04_eq2.rst -r 05_eq3.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n41.crc.pitt.edu:114991] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n41.crc.pitt.edu:114991] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
++ printf '\ndone unrestrained equil\n\n'
+/var/spool/slurmd/job6433985/slurm_script: line 73: syntax error: unexpected end of file
