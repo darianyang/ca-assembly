@@ -1,0 +1,30 @@
+20 ps solute restrained NVT equilibration using Langevin thermostat
+&cntrl
+  irest     = 0,
+  ntx       = 1,
+  ig        = -1,
+  dt        = 0.002,
+  nstlim    = 10000,
+  nscm      = 500,
+  ntr       = 1,
+  restraint_wt  = 1.0,
+  restraintmask = '!:WAT & !@H',
+  ntb       = 0,        ! no periodic boundaries
+  igb       = 1,        ! GB implicit solvent
+  cut       = 1000.0,   ! increased cut with implicit
+  rgbmax    = 999.0,    ! atom pair distance cutoff
+  saltcon   = 1.0,      ! implicit salt con in Molar
+  ntp       = 0,
+  ntt       = 3,
+  tempi     = 298.0,
+  temp0     = 298.0,
+  gamma_ln  = 1.0,
+  ntf       = 2,
+  ntc       = 2,
+  ntpr      = 500,
+  ntxo      = 2,
+  ntwr      = 10000,
+  ioutfm    = 1,
+  ntwx      = 500,
+  iwrap     = 1,
+&end

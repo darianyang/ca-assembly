@@ -1,0 +1,23 @@
+Unrestrained 10000 step minimization, 500 SD
+&cntrl
+  imin      = 1,
+  irest     = 0,
+  ntx       = 1,
+  ntmin     = 1,
+  maxcyc    = 10000,
+  ncyc      = 500,
+  ntr       = 0,
+  ntf       = 1,
+  ntc       = 1,
+  ntb       = 0,        ! no periodic boundaries
+  igb       = 1,        ! GB implicit solvent
+  cut       = 1000.0,   ! increased cut with implicit
+  rgbmax    = 999.0,    ! atom pair distance cutoff
+  saltcon   = 1.0,      ! implicit salt con in Molar
+  ntpr      = 1,
+  ntxo      = 2,
+  ntwr      = 10000,
+  ioutfm    = 1,
+  ntwx      = 0,
+  iwrap     = 1,
+&end
