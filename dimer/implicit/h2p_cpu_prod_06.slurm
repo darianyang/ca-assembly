@@ -1,15 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=igb8_4xfx_sep_PROD_06
+#SBATCH --job-name=test_imp_4xfx_sep_PROD_06
 #SBATCH --nodes=1 
-#SBATCH --ntasks-per-node=1 
+#SBATCH --ntasks-per-node=16
 #SBATCH --cluster=invest 
-#SBATCH --gres=gpu:1
 #SBATCH --partition=lchong 
 #SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH --output=slurm_prod_06.out 
-#SBATCH --error=slurm_prod_06.err 
+#SBATCH --output=slurm_prod_test_06.out 
+#SBATCH --error=slurm_prod_test_06.err 
 
 # load appropriate modules.  First purge all modules then load in intel (a prereq for loading in amber) and then amber 
 module purge
@@ -23,17 +22,18 @@ module load amber/22
 # echo commands to stdout
 set -x
 
+export DO_PARALLEL="mpirun -np 16"
 # Executable
-SANDER=pmemd.cuda
+SANDER=pmemd.MPI
 
 # Amber input files and output name
 INP=06_prod_rest.in
 #TOP=4xfx_sep_imp.prmtop
 TOP=4xfx_sep_igb8.prmtop
 CRD=05_eq3.rst
-OUT=06_prod
+OUT=06_prod_test
 
-$SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
+$DO_PARALLEL $SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
         -o   $OUT.out   -e   $OUT.ene   -v   $OUT.vel   -inf $OUT.nfo   -x   $OUT.nc
 
 ## make cpptraj input file

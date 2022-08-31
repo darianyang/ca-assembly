@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=igb8_4xfx_sep_PROD_06
 #SBATCH --nodes=1 
-#SBATCH --ntasks-per-node=1 
+#SBATCH --ntasks-per-node=2
+#SBATCH --gres=gpu:2
 #SBATCH --cluster=invest 
-#SBATCH --gres=gpu:1
 #SBATCH --partition=lchong 
 #SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
@@ -23,8 +23,9 @@ module load amber/22
 # echo commands to stdout
 set -x
 
+export DO_PARALLEL="mpirun -np 2"
 # Executable
-SANDER=pmemd.cuda
+SANDER=pmemd.cuda.MPI
 
 # Amber input files and output name
 INP=06_prod_rest.in
@@ -33,7 +34,7 @@ TOP=4xfx_sep_igb8.prmtop
 CRD=05_eq3.rst
 OUT=06_prod
 
-$SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
+$DO_PARALLEL $SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
         -o   $OUT.out   -e   $OUT.ene   -v   $OUT.vel   -inf $OUT.nfo   -x   $OUT.nc
 
 ## make cpptraj input file

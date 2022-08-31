@@ -1,0 +1,17 @@
+# Log started on 08/30/2022 [mm/dd/yyyy] at 15:44:32
+help
+help changeRadii
+help parm
+parm 4xfx_sep_imp.prmtop
+changeRadii mbondi3
+help parmout
+parmout 4xfx_sep_igb8.prmtop
+quit
+# Log started on 08/30/2022 [mm/dd/yyyy] at 15:51:26
+parm 4xfx_sep_imp.prmtop
+changeRadii mbondi3
+help parmout
+help
+help outparm
+outparm 4xfx_sep_igb8.prmtop
+quit

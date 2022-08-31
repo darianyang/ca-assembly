@@ -8,11 +8,14 @@
   nscm      = 500,
   ntr       = 0,
   ntb       = 0,        ! no periodic boundaries
-  igb       = 1,        ! GB implicit solvent
   cut       = 1000.0,   ! increased cut with implicit
-  rgbmax    = 999.0,    ! atom pair distance cutoff
   saltcon   = 0.0,      ! implicit salt con in Molar
-  ntp       = 1,
+  igb       = 8         ! specify GBneck2, the implicit solvent model
+  gbsa      = 3         ! compute surface area using a fast pairwise approximation 
+                        ! suitable for GPU machine. 
+  surften   = 0.007     ! set the surface tension used to calculate the nonpolar 
+                        ! contribution to the free energy of solvation.
+  ntp       = 0,
   barostat  = 2,
   pres0     = 1.0,
   mcbarint  = 100,
@@ -28,7 +31,7 @@
   ntwr      = 500000,
   ioutfm    = 1,
   ntwx      = 500,
-  iwrap     = 1,
+  iwrap     = 0,
 &end
 !&wt
 !  type      = 'REST',
