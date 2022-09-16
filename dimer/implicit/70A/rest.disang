@@ -18,9 +18,7 @@
   ! (r1 and r4 for lower and upper bounds, respectively) 
   ! and linear sides beyond that distance
   ! using original 20Å + 2 * RoG (RoG = ~25Å) = 70Å
-  ! not enough, switching to 90-100A
-  ! this was too much, trying around 80A
-  r1 = 79.5, r2 = 80, r3 = 85, r4 = 85.5,
+  r1 = 69.5, r2 = 70, r3 = 70, r4 = 70.5,
 
   ! force constants for lower and upper bounds at r2 and r3, respectively
   rk2 = 2.0, rk3 = 2.0,

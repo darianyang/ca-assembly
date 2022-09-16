@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=igb8_4xfx_sep_PROD_06
+#SBATCH --job-name=igb8_4xfx_sep_PROD_06_100A
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
 #SBATCH --cluster=invest 
