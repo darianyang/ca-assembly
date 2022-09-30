@@ -40,4 +40,4 @@ def pdb_fix(pdb_prefix):
 # TODO: maybe remove the extra output files from pdb4amber
 
 # make 20Å separated monomers into amber compatible format (2 models, -1 = all models)
-subprocess.run(['pdb4amber', '--no-conect', '-i', '4xfx_sep.pdb', '-o', '4xfx_sep_leap.pdb', '--model', '-1'])
+subprocess.run(['pdb4amber', '--no-conect', '-i', '4xfx_sep2.pdb', '-o', '4xfx_sep2_leap.pdb', '--model', '-1'])
