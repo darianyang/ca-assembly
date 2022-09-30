@@ -7,31 +7,23 @@
 Welcome to LEaP!
 (no leaprc in search path)
 Sourcing: ./tleap.in
------ Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq
------ Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff15ipq done
+----- Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff14SBonlysc
+----- Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.protein.ff14SBonlysc done
 Log file: ./leap.log
-Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/parm15ipq_10.3.dat
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/parm10.dat
 Reading title:
-Parm15 developmental parameter set
-Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/amino15ipq_10.0.lib
-Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminoct15ipq_10.0.lib
-Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminont15ipq_10.0.lib
------ Source: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spce
------ Source of /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/cmd/leaprc.water.spce done
-Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/atomic_ions.lib
-Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/solvents.lib
-Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.spce
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ff14SB
 Reading force field modification type file (frcmod)
 Reading title:
-This is the additional/replacement parameter set for SPC/E water
-Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ionsjc_spce
+ff14SB protein backbone and sidechain parameters
+Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ff99SB14
 Reading force field modification type file (frcmod)
 Reading title:
-Monovalent ion parameters for Ewald and SPC/E water from Joung & Cheatham JPCB (2008)
-Loading parameters: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/parm/frcmod.ions234lm_126_spce
-Reading force field modification type file (frcmod)
-Reading title:
-Li/Merz ion parameters of divalent to tetravalent ions for SPC/E water model (12-6 normal usage set)
+ff99SB backbone parameters (Hornak & Simmerling) with ff14SB atom types
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/amino12.lib
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminoct12.lib
+Loading library: /ihome/lchong/dty7/Apps/anaconda3/envs/md/dat/leap/lib/aminont12.lib
 Loading PDB file: ./4xfx_sep2_leap.pdb
   total atoms in file: 7188
 Using ArgH and AspGluO modified Bondi2 radii
@@ -49,7 +41,7 @@ Building bond parameters.
 Building angle parameters.
 Building proper torsion parameters.
 Building improper torsion parameters.
- total 1372 improper torsions applied
+ total 1392 improper torsions applied
 Building H-Bond parameters.
 Incorporating Non-Bonded adjustments.
 Not Marking per-residue atom chain types.

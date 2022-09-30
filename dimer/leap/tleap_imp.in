@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SBonlysc
+mol = loadpdb 4xfx_sep_leap.pdb
+saveamberparm mol 4xfx_sep_imp.prmtop 4xfx_sep_imp.inpcrd
+savepdb mol 4xfx_sep_imp.pdb
+quit

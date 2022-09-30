@@ -29,7 +29,6 @@ SANDER=pmemd.cuda.MPI
 
 # Amber input files and output name
 INP=06_prod_rest.in
-#TOP=4xfx_sep_imp.prmtop
 TOP=4xfx_sep_igb8.prmtop
 CRD=05_eq3.rst
 OUT=06_prod

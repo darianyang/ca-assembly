@@ -1,5 +1,4 @@
-source leaprc.protein.ff15ipq
-source leaprc.water.spce
+source leaprc.protein.ff14SBonlysc
 mol = loadpdb 4xfx_sep2_leap.pdb
 set default pbradii mbondi3
 saveamberparm mol 4xfx_sep_igb8.prmtop 4xfx_sep_igb8.inpcrd

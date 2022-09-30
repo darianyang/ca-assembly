@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=igb8_4xfx_sep_PROD_06_100A
+#SBATCH --job-name=igb8_4xfx_sep_PROD_06_70A
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
 #SBATCH --cluster=invest 
@@ -28,7 +28,6 @@ SANDER=pmemd.cuda
 
 # Amber input files and output name
 INP=06_prod_rest.in
-#TOP=4xfx_sep_imp.prmtop
 TOP=4xfx_sep_igb8.prmtop
 CRD=05_eq3.rst
 OUT=06_prod
