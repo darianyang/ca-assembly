@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=igb8_4xfx_sep_PROD_06_100A
+#SBATCH --job-name=igb8_4xfx_sep_PROD_06_85-90A
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=2
 #SBATCH --gres=gpu:2

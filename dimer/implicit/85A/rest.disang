@@ -22,14 +22,11 @@
   ! this was too much, trying around 80A
   ! This didn't work either, they got tangled, I think I need a larger force constant
   ! So going back to 75A using 10 kcal/mol*A^2 force constant
-  ! Okay... so they still got NTD tangled, trying one more time using 85-90A
-  ! Still not good. Perhaps I need a more spread apart starting position
-  ! Okay, so now using 50 kcal lower potential and moved starting monomers further apart
-  ! I feel like with those properties in place I can use 70-80A distances
-  r1 = 69.5, r2 = 70, r3 = 80, r4 = 80.5,
+  ! okay... so they still got NTD tangled, trying one more time using 85-90A
+  r1 = 79.5, r2 = 80, r3 = 90, r4 = 90.5,
 
   ! force constants for lower and upper bounds at r2 and r3, respectively
   ! keeping 2 kcal for upper distance, keep it loose but make sure they stay separated with lower bound
-  rk2 = 50.0, rk3 = 2.0,
+  rk2 = 30.0, rk3 = 2.0,
 
 &end
