@@ -1,0 +1,26 @@
+Unrestrained 10000 step minimization, 500 SD
+&cntrl
+  imin      = 1,
+  irest     = 0,
+  ntx       = 1,
+  ntmin     = 1,
+  maxcyc    = 10000,
+  ncyc      = 500,
+  ntr       = 0,
+  ntf       = 1,
+  ntc       = 1,
+  ntb       = 0,        ! no periodic boundaries
+  cut       = 1000.0,   ! increased cut with implicit
+  saltcon   = 0.0,      ! implicit salt con in Molar
+  igb       = 8         ! specify GBneck2, the implicit solvent model
+  gbsa      = 3         ! compute surface area using a fast pairwise approximation 
+                        ! suitable for GPU machine. 
+  surften   = 0.007     ! set the surface tension used to calculate the nonpolar 
+                        ! contribution to the free energy of solvation.
+  ntpr      = 1,
+  ntxo      = 2,
+  ntwr      = 10000,
+  ioutfm    = 1,
+  ntwx      = 0,
+  iwrap     = 0,
+&end
