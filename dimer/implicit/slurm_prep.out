@@ -1,4 +1,22 @@
 
+start min
+
+
+done min
+
+
+start restrained system heat in
+
+
+done restrained system heat in
+
+
+start restrained equil
+
+
+done restrained equil
+
+
 start unrestrained equil
 
 
@@ -6,4 +24,4 @@ done unrestrained equil
 
 
 SUBMITTING PROD RUN
-Submitted batch job 28468 on cluster invest
+Submitted batch job 28517 on cluster invest

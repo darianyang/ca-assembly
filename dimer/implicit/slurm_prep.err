@@ -3,11 +3,22 @@ Warning: When compiling code please add the following flags to nvcc:
          -gencode arch=compute_61,code=[compute_61,sm_61] 
          -gencode arch=compute_70,code=[compute_70,sm_70] 
 + SANDER=pmemd.cuda
-+ PDB=4xfx_sep_imp
-+ TOP=4xfx_sep_igb8
++ PDB=4xfx_sep_igb8
++ printf '\nstart min\n\n'
++ pmemd -O -i 02_min.in -o 02_min.out -p 4xfx_sep_igb8.prmtop -c 4xfx_sep_igb8.inpcrd -r 02_min.rst
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ printf '\ndone min\n\n'
++ printf '\nstart restrained system heat in\n\n'
++ pmemd.cuda -O -i 03_eq1.in -o 03_eq1.out -p 4xfx_sep_igb8.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ printf '\ndone restrained system heat in\n\n'
++ printf '\nstart restrained equil\n\n'
++ pmemd.cuda -O -i 04_eq2.in -o 04_eq2.out -p 4xfx_sep_igb8.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ printf '\ndone restrained equil\n\n'
 + printf '\nstart unrestrained equil\n\n'
 + pmemd.cuda -O -i 05_eq3_rest.in -o 05_eq3.out -p 4xfx_sep_igb8.prmtop -c 04_eq2.rst -r 05_eq3.rst
 Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
 + printf '\ndone unrestrained equil\n\n'
 + printf '\nSUBMITTING PROD RUN\n'
-+ sbatch h2p_2gpu_prod_06.slurm
++ sbatch h2p_1gpu_prod_06.slurm
