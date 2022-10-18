@@ -9,15 +9,8 @@
   ntr       = 1,
   restraint_wt  = 1.0,
   restraintmask = '!:WAT & !@H',
-  ntb       = 0,        ! no periodic boundaries
-  cut       = 1000.0,   ! increased cut with implicit
-  saltcon   = 0.0,      ! implicit salt con in Molar
-  igb       = 8         ! specify GBneck2, the implicit solvent model
-  gbsa      = 3         ! compute surface area using a fast pairwise approximation 
-                        ! suitable for GPU machine. 
-  surften   = 0.007     ! set the surface tension used to calculate the nonpolar 
-                        ! contribution to the free energy of solvation.
-  ntp       = 0,
+  ntb       = 2,
+  ntp       = 1,
   barostat  = 2,
   pres0     = 1.0,
   mcbarint  = 100,
@@ -28,10 +21,11 @@
   gamma_ln  = 1.0,
   ntf       = 2,
   ntc       = 2,
+  cut       = 10.0,
   ntpr      = 500,
   ntxo      = 2,
   ntwr      = 500000,
   ioutfm    = 1,
   ntwx      = 500,
-  iwrap     = 0,
+  iwrap     = 1,
 &end

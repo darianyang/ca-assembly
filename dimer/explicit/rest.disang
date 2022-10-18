@@ -30,6 +30,6 @@
 
   ! force constants for lower and upper bounds at r2 and r3, respectively
   ! keeping 2 kcal for upper distance, keep it loose but make sure they stay separated with lower bound
-  rk2 = 50.0, rk3 = 2.0,
+  rk2 = 10.0, rk3 = 2.0,
 
 &end

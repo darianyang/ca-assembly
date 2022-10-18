@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=igb8_4xfx_sep_PROD_06_70A
+#SBATCH --job-name=v00_4xfx_sep_PROD_06
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
-#SBATCH --cluster=invest 
+#SBATCH --cluster=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --partition=lchong 
+#SBATCH --partition=a100 
 #SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -28,24 +28,24 @@ SANDER=pmemd.cuda
 
 # Amber input files and output name
 INP=06_prod_rest.in
-TOP=4xfx_sep_igb8.prmtop
+TOP=4xfx_sep_solv.prmtop
 CRD=05_eq3.rst
 OUT=06_prod
 
 $SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
-        -o   $OUT.out   -e   $OUT.ene   -v   $OUT.vel   -inf $OUT.nfo   -x   $OUT.nc
+        -o   $OUT.out   -e   $OUT.ene   -v   $OUT.vel   -inf $OUT.nfo   -x   $OUT.nc &&
 
-## make cpptraj input file
-#echo "parm 4xfx_sep_solv.prmtop"                            > strip_06.in
-#echo "trajin 06_prod.nc 1 last 10i"                                    >> strip_06.in
-#echo "autoimage"                                            >> strip_06.in
-#echo "strip :WAT,Cl-,Na+ parmout 4xfx_sep_dry.prmtop"           >> strip_06.in
-#echo "trajout 06_prod_dry_10i.nc"                               >> strip_06.in
-#echo "go"                                                   >> strip_06.in
-#echo "quit"                                                 >> strip_06.in
-#
-## run cpptraj to strip water
-#cpptraj -i strip_06.in > strip_06.out
+# make cpptraj input file
+echo "parm 4xfx_sep_solv.prmtop"                            > strip_06.in
+echo "trajin 06_prod.nc"                                    >> strip_06.in
+echo "autoimage"                                            >> strip_06.in
+echo "strip :WAT,Na+,Cl- parmout 4xfx_sep_dry.prmtop"           >> strip_06.in
+echo "trajout 06_prod_dry.nc"                               >> strip_06.in
+echo "go"                                                   >> strip_06.in
+echo "quit"                                                 >> strip_06.in
+
+# run cpptraj to strip water
+cpptraj -i strip_06.in > strip_06.out
 
 # remove solvated nc file
 #if [ -f "06_prod_dry.nc" ] ; then

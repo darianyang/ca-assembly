@@ -1,0 +1,7 @@
+parm 4xfx_sep_solv.prmtop
+trajin 06_prod.nc
+autoimage
+strip :WAT,Na+,Cl- parmout 4xfx_sep_dry.prmtop
+trajout 06_prod_dry.nc
+go
+quit

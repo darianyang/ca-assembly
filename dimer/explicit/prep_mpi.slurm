@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=4xfx_sep_PREP_100A
+#SBATCH --job-name=4xfx_sep_PREP
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --cluster=invest
-#SBATCH --gres=gpu:1
 #SBATCH --partition=lchong
-#SBATCH --time=11:59:59
+#SBATCH --gres=gpu:1
+#SBATCH --time=47:59:59
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_prep.out 
@@ -27,20 +27,20 @@ set -x
 
 # set variables
 #export DO_PARALLEL="mpirun -np 16"
-#SANDER=pmemd.MPI
 SANDER=pmemd.cuda
 
 ###################################################
 ###################################################
 ###################################################
-PDB="4xfx_sep_igb8" 
+PDB="4xfx_sep_solv" 
 ###################################################
 ###################################################
 ###################################################
 
 # 10000 step minimization (500 steepest descent)
 printf "\nstart min\n\n" 
-      pmemd -O \
+#$DO_PARALLEL \
+    $SANDER -O \
             -i 02_min.in -o 02_min.out \
             -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
 printf "\ndone min\n\n" 

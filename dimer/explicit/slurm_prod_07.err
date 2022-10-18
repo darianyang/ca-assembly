@@ -1,0 +1,23 @@
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
++ SANDER=pmemd.cuda
++ INP=07_prod.in
++ TOP=4xfx_sep_solv.prmtop
++ CRD=06_prod.rst
++ OUT=07_prod
++ pmemd.cuda -O -i 07_prod.in -p 4xfx_sep_solv.prmtop -c 06_prod.rst -r 07_prod.rst -o 07_prod.out -e 07_prod.ene -v 07_prod.vel -inf 07_prod.nfo -x 07_prod.nc
+
+  Unit    5 Error on OPEN: 07_prod.in                                                                                                                                                                                                                                                      
+STOP PMEMD Terminated Abnormally!
++ echo 'trajin 07_prod.nc'
++ echo autoimage
++ echo 'strip :WAT,Na+,Cl-'
++ echo 'trajout 07_prod_dry.nc'
++ echo go
++ echo quit
++ cpptraj -i strip_07.in
+Error: No topology selected or no topologies present.
+	1 errors encountered reading input.
+Error: Error(s) occurred during execution.
