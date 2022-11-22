@@ -11,3 +11,4 @@ seg_logs
 *.h5*
 *prod.out
 mdcrd
+*2m8l*solv.pdb

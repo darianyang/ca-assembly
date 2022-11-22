@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=v00_tod_sep_PROD_06
+#SBATCH --job-name=tod_sep_PROD_06
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1 
-#SBATCH --cluster=invest
+#SBATCH --cluster=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --partition=lchong
-#SBATCH --time=144:00:00 
+#SBATCH --partition=a100
+#SBATCH --time=72:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_prod_06.out 

@@ -1,14 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=2m8l_sep_PREP
+#SBATCH --job-name=2m8l_sep_PREP_2
 #SBATCH --nodes=1 
-#SBATCH --ntasks-per-node=24
-#SBATCH --cluster=smp
-#SBATCH --partition=smp
-#SBATCH --time=139:59:59
+#SBATCH --ntasks-per-node=1
+#SBATCH --cluster=gpu
+#SBATCH --partition=a100
+#SBATCH --gres=gpu:1
+#SBATCH --time=72:00:00
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
-#SBATCH --output=slurm_prep.out 
-#SBATCH --error=slurm_prep.err 
+#SBATCH --output=slurm_prep2.out 
+#SBATCH --error=slurm_prep2.err 
 
 # load appropriate modules.  First purge all modules then load in intel (a prereq for loading in amber) and then amber 
 module purge
@@ -25,8 +26,7 @@ module load amber/22
 set -x
 
 # set variables
-export DO_PARALLEL="mpirun -np 24"
-SANDER=pmemd.MPI
+SANDER=pmemd.cuda
 
 ###################################################
 ###################################################
@@ -36,20 +36,8 @@ PDB="2m8l_sep_solv"
 ###################################################
 ###################################################
 
-# run tleap
-#tleap -f tleap.in > tleap.out &&
-
-# 10000 step minimization (500 steepest descent)
-#printf "\nstart min\n\n" 
-#$DO_PARALLEL \
-#    pmemd -O \
-#            -i 02_min.in -o 02_min.out \
-#            -p ${PDB}.prmtop -c ${PDB}.inpcrd -r 02_min.rst &&
-#printf "\ndone min\n\n" 
-
 # 20ps restrained NVT equilibration with Langevin thermostat (298K)
 printf "\nstart restrained system heat in\n\n" 
-$DO_PARALLEL \
     $SANDER -O \
             -i 03_eq1.in -o 03_eq1.out \
             -p ${PDB}.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst &&
@@ -57,7 +45,6 @@ printf "\ndone restrained system heat in\n\n"
 
 # 1 ns restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
 printf "\nstart restrained equil\n\n" 
-$DO_PARALLEL \
     $SANDER  -O \
             -i 04_eq2.in -o 04_eq2.out \
             -p ${PDB}.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst &&
@@ -65,11 +52,11 @@ printf "\ndone restrained equil\n\n"
 
 # 1 ns distance restrained NPT equilibration Langevin thermostat (298K) MC barostat (1atm)
 printf "\nstart unrestrained equil\n\n" 
-$DO_PARALLEL \
     $SANDER -O \
             -i 05_eq3_rest.in -o 05_eq3.out \
             -p ${PDB}.prmtop -c 04_eq2.rst -r 05_eq3.rst &&
 printf "\ndone unrestrained equil\n\n"
 
 printf "\nSUBMITTING PROD RUN\n" &&
-sbatch h2p_1gpu_prod_06.slurm
+
+#sbatch h2p_1gpu_prod_06.slurm

@@ -1,12 +1,12 @@
 source leaprc.protein.ff15ipq
 source leaprc.water.spce
-mol = loadpdb 2m8l_sep_leap.pdb
+mol = loadpdb 2m8l_sep3_leap.pdb
 addions mol Cl- 0
 addions mol Na+ 0
 # using 12Å should be fine
 solvateoct mol SPCBOX 12.0
-addions2 mol Cl- 2757
-addions2 mol Na+ 2757
+addions2 mol Cl- 6674
+addions2 mol Na+ 6674
 saveamberparm mol 2m8l_sep_solv.prmtop 2m8l_sep_solv.inpcrd
 savepdb mol 2m8l_sep_solv.pdb
 quit
