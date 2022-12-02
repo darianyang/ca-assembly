@@ -1,0 +1,27 @@
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
++ SANDER=pmemd.cuda
++ pmemd.cuda -O -i 08_prod.in -o 08_prod.out -x 08_prod.nc -p 2m8l_sep_solv.prmtop -c 07_prod.rst -r 08_prod.rst -inf 08_prod.nfo
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ echo 'parm PDB_TEMP_solv.prmtop'
++ echo 'trajin 08_prod.nc'
++ echo 'unwrap :1-1386'
++ echo 'center :1-1386 mass origin'
++ echo 'image origin center familiar'
++ echo 'strip/strip :WAT,Cl-,Na+ '
++ echo 'trajout 08_prod_dry.nc'
++ echo go
++ echo quit
++ cpptraj -i strip/strip_08.in
+Error: 'PDB_TEMP_solv.prmtop': No such file or directory
+Error: Could not open topology 'PDB_TEMP_solv.prmtop'
+	1 errors encountered reading input.
+Error: Error(s) occurred during execution.
++ sbatch h2p_gpu_prod_09.slurm
+sbatch: error: Unable to open file h2p_gpu_prod_09.slurm

@@ -1,0 +1,9 @@
+parm PDB_TEMP_solv.prmtop
+trajin 07_prod.nc
+unwrap :1-1386
+center :1-1386 mass origin
+image origin center familiar
+strip/strip :WAT,Cl-,Na+ 
+trajout 07_prod_dry.nc
+go
+quit
