@@ -38,7 +38,9 @@ $SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
 # make cpptraj input file
 echo "parm 4xfx_sep_solv.prmtop"                            > strip_10.in
 echo "trajin 10_prod.nc"                                    >> strip_10.in
-echo "autoimage"                                            >> strip_10.in
+echo "unwrap :1-462"                                        >> strip_10.in
+echo "center :1-462 mass origin"                            >> strip_10.in
+echo "image origin center familiar"                         >> strip_10.in
 echo "strip :WAT,Na+,Cl-"                                   >> strip_10.in
 echo "trajout 10_prod_dry.nc"                               >> strip_10.in
 echo "go"                                                   >> strip_10.in

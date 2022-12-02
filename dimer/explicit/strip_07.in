@@ -1,5 +1,8 @@
+parm 4xfx_sep_solv.prmtop
 trajin 07_prod.nc
-autoimage
+unwrap :1-462
+center :1-462 mass origin
+image origin center familiar
 strip :WAT,Na+,Cl-
 trajout 07_prod_dry.nc
 go
