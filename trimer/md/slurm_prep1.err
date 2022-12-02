@@ -1,0 +1,16 @@
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
++ export 'DO_PARALLEL=mpirun -np 24'
++ DO_PARALLEL='mpirun -np 24'
++ SANDER=pmemd.MPI
++ PDB=2m8l_sep_solv
++ printf '\nstart min\n\n'
++ mpirun -np 24 pmemd -O -i 02_min.in -o 02_min.out -p 2m8l_sep_solv.prmtop -c 2m8l_sep_solv.inpcrd -r 02_min.rst
++ printf '\ndone min\n\n'
++ sbatch prep_mpi_2.slurm

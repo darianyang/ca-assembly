@@ -1,0 +1,84 @@
+
+CPPTRAJ: Trajectory Analysis. V6.4.4 (AmberTools)
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 11/04/22 07:17:13
+| Available memory: 310.614 GB
+
+INPUT: Reading input from 'strip_08.in'
+  [parm 4xfx_sep_solv.prmtop]
+	Reading '4xfx_sep_solv.prmtop' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+  [trajin 08_prod.nc]
+	Reading '08_prod.nc' as Amber NetCDF
+  [unwrap :1-462]
+    UNWRAP: By atom using mask ':1-462'
+	Reference is first frame.
+  [center :1-462 mass origin]
+    CENTER: Centering coordinates using center of mass of atoms in mask (:1-462) to
+	coordinate origin.
+  [image origin center familiar]
+    IMAGE: By molecule to origin based on center of mass using all atoms
+           Triclinic On, familiar shape.
+  [strip :WAT,Na+,Cl-]
+    STRIP: Stripping atoms in mask [:WAT,Na+,Cl-]
+  [trajout 08_prod_dry.nc]
+	Writing '08_prod_dry.nc' as Amber NetCDF
+  [go]
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES (1 total):
+ 0: 4xfx_sep_solv.prmtop, 397711 atoms, 130639 res, box: Truncated octahedron, 130179 mol, 130173 solvent
+
+INPUT TRAJECTORIES (1 total):
+ 0: '08_prod.nc' is a NetCDF AMBER trajectory with coordinates, time, box, Parm 4xfx_sep_solv.prmtop (Truncated octahedron box) (reading 200000 of 200000)
+  Coordinate processing will occur on 200000 frames.
+
+OUTPUT TRAJECTORIES (1 total):
+  '08_prod_dry.nc' (200000 frames) is a NetCDF AMBER trajectory
+
+BEGIN TRAJECTORY PROCESSING:
+.....................................................
+ACTION SETUP FOR PARM '4xfx_sep_solv.prmtop' (4 actions):
+  0: [unwrap :1-462]
+	Mask [:1-462] corresponds to 7188 atoms.
+	Number of atoms to be unwrapped is 7188
+  1: [center :1-462 mass origin]
+	Mask [:1-462] corresponds to 7188 atoms.
+  2: [image origin center familiar]
+	Mask [*] corresponds to 397711 atoms.
+	Number of molecules to be imaged is 130179
+  3: [strip :WAT,Na+,Cl-]
+	Stripping 390523 atoms.
+	Stripped topology: 7188 atoms, 462 res, box: Truncated octahedron, 2 mol
+.....................................................
+ACTIVE OUTPUT TRAJECTORIES (1):
+  08_prod_dry.nc (coordinates, time, box)
+----- 08_prod.nc (1-200000, 1) -----
+ 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% Complete.
+
+Read 200000 frames and processed 200000 frames.
+TIME: Avg. throughput= 31.4219 frames / second.
+
+ACTION OUTPUT:
+TIME: Analyses took 0.0000 seconds.
+
+RUN TIMING:
+TIME:		Init               : 0.0000 s (  0.00%)
+TIME:		Trajectory Process : 6364.9945 s (100.00%)
+TIME:		Action Post        : 0.0000 s (  0.00%)
+TIME:		Analysis           : 0.0000 s (  0.00%)
+TIME:		Data File Write    : 0.0000 s (  0.00%)
+TIME:		Other              : 0.0108 s (  0.00%)
+TIME:	Run Total 6365.0053 s
+---------- RUN END ---------------------------------------------------
+  [quit]
+TIME: Total execution time: 6366.0017 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+

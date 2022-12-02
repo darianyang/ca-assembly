@@ -5,9 +5,8 @@
 
   ! atom selections
   !iat = 1, 2
-  ! trying it with com of m1 and com m2
   ! not including ctd tail since not resolved in xtal from 221-231
-  restraint = "distance( com(:1-221) com(232-452) )"
+  restraint = "distance(com(:1-221,232-452) com(:463-683,694-914)),distance(com(:1-221,232-452) com(:925-1145,1156-1376)),distance(com(:463-683,694-914) com(:925-1145,1156-1376))"
 
   ! penalty energy rises for large distances (default = 0)
   ialtd = 0

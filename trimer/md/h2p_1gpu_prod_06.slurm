@@ -5,17 +5,13 @@
 #SBATCH --cluster=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --partition=a100
-#SBATCH --time=72:00:00 
+#SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
 #SBATCH --output=slurm_prod_06.out 
 #SBATCH --error=slurm_prod_06.err 
 
-# load appropriate modules.  First purge all modules then load in intel (a prereq for loading in amber) and then amber 
 module purge
-#module load intel/2017.3.196
-#module load amber/18
-
 module load gcc/8.2.0
 module load openmpi/4.0.3
 module load amber/22

@@ -27,3 +27,15 @@
   ntwx      = 500,
   iwrap     = 1,
 &end
+!&wt
+!  type      = 'REST',
+!  value1    = 1.0,
+!&end
+&wt
+  type      = 'DUMPFREQ',
+&end
+&wt
+  type      = 'END',
+&end
+DISANG      = rest.disang
+DUMPAVE     = rest.dat

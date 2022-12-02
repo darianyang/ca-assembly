@@ -38,4 +38,4 @@
   type      = 'END',
 &end
 DISANG      = rest.disang
-DUMPSAVE    = rest.dat
+DUMPAVE     = rest.dat

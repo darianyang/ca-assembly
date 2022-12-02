@@ -1,0 +1,25 @@
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
++ SANDER=pmemd.cuda
++ INP=10_prod_rest.in
++ TOP=4xfx_sep_solv.prmtop
++ CRD=09_prod.rst
++ OUT=10_prod
++ pmemd.cuda -O -i 10_prod_rest.in -p 4xfx_sep_solv.prmtop -c 09_prod.rst -r 10_prod.rst -o 10_prod.out -e 10_prod.ene -v 10_prod.vel -inf 10_prod.nfo -x 10_prod.nc
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ echo 'parm 4xfx_sep_solv.prmtop'
++ echo 'trajin 10_prod.nc'
++ echo 'unwrap :1-462'
++ echo 'center :1-462 mass origin'
++ echo 'image origin center familiar'
++ echo 'strip :WAT,Na+,Cl-'
++ echo 'trajout 10_prod_dry.nc'
++ echo go
++ echo quit
++ cpptraj -i strip_10.in
