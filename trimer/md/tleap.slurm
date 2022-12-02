@@ -24,4 +24,5 @@ module load amber/22
 # run tleap
 tleap -f tleap.in > tleap.out &&
 
-sbatch prep_mpi_1.slurm
+#sbatch prep_mpi_1.slurm
+sbatch h2p_gpu_prod_07.slurm
